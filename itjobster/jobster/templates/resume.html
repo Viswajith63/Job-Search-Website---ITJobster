@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Your Name - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="name">Your Name</h1>
+        <p id="job-title">Web Developer</p>
+    </header>
+
+    <section>
+        <h2>Contact Information</h2>
+        <form id="contact-form">
+            <label for="name-input">Name:</label>
+            <input type="text" id="name-input" name="name">
+            <br>
+
+            <label for="job-title-input">Job Title:</label>
+            <input type="text" id="job-title-input" name="job-title">
+            <br>
+
+            <label for="mailinput">Email:</label>
+            <input type="text" id="mail-input" name="mail">
+            <br>
+
+            <label for="phone-input">Phone:</label>
+            <input type="text" id="phone-input" name="phone">
+            <br>
+
+            <label for="website-input">Website:</label>
+            <input type="text" id="website-input" name="website">
+            <br>
+
+            <label for="linkedin-input">LinkedIn:</label>
+            <input type="text" id="linkedin-input" name="linkedin">
+        </form>
+    </section>
+
+    <section>
+        <h2>Summary</h2>
+        <form id="summary-form">
+            <textarea id="summary-input" name="summary" rows="4" cols="50"></textarea>
+        </form>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <form id="education-form">
+            <label for="degree-input">Degree:</label>
+            <input type="text" id="degree-input" name="degree">
+            <br>
+
+            <label for ="school-input">School:</label>
+            <input type="text" id ="school-input" name ="school">
+            <br>
+
+            <label for="education-year-input">Year:</label>
+            <input type="text" id="education-year-input" name="education-year">
+        </form>
+    </section>
+
+    <section>
+        <h2>Experience</h2>
+        <form id="experience-form">
+            <label for="job-title-input">Job Title:</label>
+            <input type="text" id="job-title-input" name="job-title">
+            <br>
+
+            <label for="company-input">Company:</label>
+            <input type="text" id="company-input" name="company">
+            <br>
+
+            <label for="location-input">Location:</label>
+            <input type="text" id="location-input" name="location">
+            <br>
+
+            <label for="experience-dates-input">Dates:</label>
+            <input type="text" id="experience-dates-input" name="experience-dates">
+            <br>
+
+            <label for="description-input">Description:</label>
+            <textarea id="description-input" name="description" rows="4" cols="50"></textarea>
+        </form>
+    </section>
+    
+    <input type="button" value="Submit" id="submit-button">
+    <input type="button" value="Print Resume" id="print-button">
+
+
+    
+    <script>
+        // JavaScript to populate the resume fields from the forms and remove empty sections
+        document.getElementById('submit-button').addEventListener('click', function () {
+            // Check and remove sections with empty input fields
+            var nameElement = document.getElementById('name');
+            if (nameElement && document.getElementById('name-input').value.trim() === '') {
+                nameElement.remove();
+            }
+            
+            var jobTitleElement = document.getElementById('job-title');
+            if (jobTitleElement && document.getElementById('job-title-input').value.trim() === '') {
+                jobTitleElement.remove();
+            }
+    
+            var emailElement = document.getElementById('email');
+            if (emailElement && document.getElementById('email-input').value.trim() === '') {
+                emailElement.remove();
+            }
+    
+            var phoneElement = document.getElementById('phone');
+            if (phoneElement && document.getElementById('phone-input').value.trim() === '') {
+                phoneElement.remove();
+            }
+    
+            var websiteElement = document.getElementById('website');
+            if (websiteElement && document.getElementById('website-input').value.trim() === '') {
+                websiteElement.remove();
+            }
+    
+            var linkedinElement = document.getElementById('linkedin');
+            if (linkedinElement && document.getElementById('linkedin-input').value.trim() === '') {
+                linkedinElement.remove();
+            }
+    
+            // Check and remove sections with empty input fields
+            var summaryElement = document.getElementById('summary');
+            if (summaryElement && document.getElementById('summary-input').value.trim() === '') {
+                summaryElement.remove();
+            }
+    
+            // Check and remove sections with empty input fields
+            var degreeElement = document.getElementById('degree');
+            if (degreeElement && document.getElementById('degree-input').value.trim() === '') {
+                degreeElement.remove();
+            }
+    
+            var schoolElement = document.getElementById('school');
+            if (schoolElement && document.getElementById('school-input').value.trim() === '') {
+                schoolElement.remove();
+            }
+    
+            var educationYearElement = document.getElementById('education-year');
+            if (educationYearElement && document.getElementById('education-year-input').value.trim() === '') {
+                educationYearElement.remove();
+            }
+    
+            // Check and remove sections with empty input fields
+            var jobTitleElementExp = document.getElementById('job-title-exp');
+            if (jobTitleElementExp && document.getElementById('job-title-input-exp').value.trim() === '') {
+                jobTitleElementExp.remove();
+            }
+    
+            var companyElement = document.getElementById('company');
+            if (companyElement && document.getElementById('company-input').value.trim() === '') {
+                companyElement.remove();
+            }
+    
+            var locationElement = document.getElementById('location');
+            if (locationElement && document.getElementById('location-input').value.trim() === '') {
+                locationElement.remove();
+            }
+    
+            var experienceDatesElement = document.getElementById('experience-dates');
+            if (experienceDatesElement && document.getElementById('experience-dates-input').value.trim() === '') {
+                experienceDatesElement.remove();
+            }
+    
+            var descriptionElement = document.getElementById('description');
+            if (descriptionElement && document.getElementById('description-input').value.trim() === '') {
+                descriptionElement.remove();
+            }
+        });
+    
+        // JavaScript to trigger the print functionality and open a new window for printing
+        document.getElementById('print-button').addEventListener('click', function () {
+            var printWindow = window.open('', '', 'width=600,height=600');
+            printWindow.document.open();
+            printWindow.document.write('<html><head><title>Print Resume</title></head><body>');
+    
+            // Conditional checks before accessing outerHTML
+            var nameElement = document.getElementById('name');
+            if (nameElement) {
+                printWindow.document.write(nameElement.outerHTML);
+            }
+            var jobTitleElement = document.getElementById('job-title');
+            if (jobTitleElement) {
+                printWindow.document.write(jobTitleElement.outerHTML);
+            }
+            var emailElement = document.getElementById('email');
+            if (emailElement) {
+                printWindow.document.write(emailElement.outerHTML);
+            }
+            var phoneElement = document.getElementById('phone');
+            if (phoneElement) {
+                printWindow.document.write(phoneElement.outerHTML);
+            }
+            var websiteElement = document.getElementById('website');
+            if (websiteElement) {
+                printWindow.document.write(websiteElement.outerHTML);
+            }
+            var linkedinElement = document.getElementById('linkedin');
+            if (linkedinElement) {
+                printWindow.document.write(linkedinElement.outerHTML);
+            }
+    
+            // Check and remove sections with empty input fields
+            var summaryElement = document.getElementById('summary');
+            if (summaryElement) {
+                printWindow.document.write(summaryElement.outerHTML);
+            }
+    
+            // Check and remove sections with empty input fields
+            var degreeElement = document.getElementById('degree');
+            if (degreeElement) {
+                printWindow.document.write(degreeElement.outerHTML);
+            }
+            var schoolElement = document.getElementById('school');
+            if (schoolElement) {
+                printWindow.document.write(schoolElement.outerHTML);
+            }
+            var educationYearElement = document.getElementById('education-year');
+            if (educationYearElement) {
+                printWindow.document.write(educationYearElement.outerHTML);
+            }
+    
+            // Check and remove sections with empty input fields
+            var jobTitleElementExp = document.getElementById('job-title-exp');
+            if (jobTitleElementExp) {
+                printWindow.document.write(jobTitleElementExp.outerHTML);
+            }
+            var companyElement = document.getElementById('company');
+            if (companyElement) {
+                printWindow.document.write(companyElement.outerHTML);
+            }
+            var locationElement = document.getElementById('location');
+            if (locationElement) {
+                printWindow.document.write(locationElement.outerHTML);
+            }
+            var experienceDatesElement = document.getElementById('experience-dates');
+            if (experienceDatesElement) {
+                printWindow.document.write(experienceDatesElement.outerHTML);
+            }
+            var descriptionElement = document.getElementById('description');
+            if (descriptionElement) {
+                printWindow.document.write(descriptionElement.outerHTML);
+            }
+    
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+            printWindow.close();
+        });
+    </script>
+    
+</body>
+</html>
