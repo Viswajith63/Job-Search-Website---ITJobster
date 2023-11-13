@@ -5,7 +5,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Resume-Templete</title>
-   
 </head>
 
 <body>
@@ -15,32 +14,28 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
 
-    <main class="d-flex justify-content-between">
-        <div class="d-flex flex-column p-5 text-bg-dark"
-            style="text-align: center; height:739px;position: fixed;">
-            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <main class="d-flex flex-nowrap">
+        <div class="d-flex flex-column p-5 text-bg-dark" style="width: 230px; height:739px;position: fixed;">
+            <h1 href="#" class="d-flex mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+                style="text-align: center;">
                 <span class="fs-4">ITJosbster</span>
-            </a>
+            </h1>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
+                <li>
                     <a href="#" class="nav-link text-white" onclick="window.location='home.html';">
-                        <svg class="bi pe-none me-2" width="15" height="16">
-                        </svg>
                         Home
                     </a>
                 </li>
-                <li>
+                <br>
+                <li class="nav-item">
                     <a href="#" class="nav-link active text-white" onclick="window.location='Resume.html';">
-                        <svg class="bi pe-none me-2" width="15" height="16">
-                            <use xlink:href="#speedometer2"></use>
-                        </svg>
                         My Resume
                     </a>
                 </li>
                 <li>
                     <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="15" height="16">
+                        <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
                         Orders
@@ -48,7 +43,7 @@
                 </li>
                 <li>
                     <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="15" height="16">
+                        <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
                         Products
@@ -56,7 +51,7 @@
                 </li>
                 <li>
                     <a href="#" class="nav-link text-white">
-                        <svg class="bi pe-none me-2" width="15" height="16">
+                        <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#people-circle"></use>
                         </svg>
                         Customers
@@ -64,28 +59,19 @@
                 </li>
             </ul>
             <hr>
-            <div class="dropdown">
-                <a href="#" class=" align-items-center text-white text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="P:\Sample\person.svg" width="32">
-                    <strong> Menu</strong>
+            <div>
+                <a href="#" class="text-white text-decoration-none" onclick="window.location='signup.html';"
+                    style="width: 10px; padding-left: 0%;color: aqua;">
+                    <img src="{%static "P:\SE\Software-Engineering\itjobster\jobster\static\img\signout.svg" %}" width="30">
+                    <strong>Sign out</strong>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#" onclick="window.location='signup.html';">Sign out</a></li>
-                </ul>
             </div>
         </div>
-        <div class="res col-lg-8 col-md-8 col-sm-12">
+        <div class="res col-lg-10">
             <form id="resume-form">
-                <h1>Resume Generator</h1>
+                <h1 style="color: #333; font-size: 30px;margin-top: 30px; margin-left: 720px;">Resume Generator</h1>
 
-                <h3>Personal Details</h3>
+                <h2 style="margin-left:250px;">Personal Details</h2>
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required><br>
 
@@ -99,12 +85,12 @@
                 <input type="tel" id="phone" name="phone" required><br>
 
                 <label for="website">Website:</label>
-                <input type="url" id="website" name="website" value="https://"><br>
+                <input type="url" id="website" name="website"><br>
 
-                <label for="linkedin" value="https://">LinkedIn Profile:</label>
-                <input type="url" id="linkedin" name="linkedin" value="https://"><br>
+                <label for="linkedin">LinkedIn Profile:</label>
+                <input type="url" id="linkedin" name="linkedin"><br>
 
-                <h3>Education</h3>
+                <h2 style="margin-left:250px;">Education</h2>
                 <label for="degree">Degree:</label>
                 <input type="text" id="degree" name="degree" required><br>
 
@@ -114,15 +100,15 @@
                 <label for="graduation-year">Graduation Year:</label>
                 <input type="text" id="graduation-year" name="graduation-year" required><br>
 
-                <h3>Expertise</h3>
+                <h2 style="margin-left:250px;">Expertise</h2>
                 <label for="skills">Skills (comma-separated):</label>
                 <input type="text" id="skills" name="skills" required><br>
 
-                <h3>Languages</h3>
+                <h2 style="margin-left:250px;">Languages</h2>
                 <label for="spoken-languages">Spoken Languages (comma-separated):</label>
                 <input type="text" id="spoken-languages" name="spoken-languages" required><br>
 
-                <h3>Experience</h3>
+                <h2 style="margin-left:250px;">Experience</h2>
                 <label for="job-title">Job Title:</label>
                 <input type="text" id="job-title" name="job-title"><br>
 
@@ -135,23 +121,25 @@
                 <label for="job-description">Job Description (comma-separated):</label>
                 <input type="text" id="job-description" name="job-description"><br>
 
-                <h3>Description</h3>
+                <h2 style="margin-left:250px;">Description</h2>
                 <label for="personal-description">About:</label>
-                <textarea id="personal-description" name="personal-description" rows="4" cols="50"
+                <textarea id="personal-description" name="personal-description" rows="6" cols="166"
                     required></textarea><br>
-
-                <input id="generate-button" type="submit" value="Generate Resume">
-                
-
+                <br>
+                <div>
+                    <input type="submit" id="submit_button" value="Generate Resume">
+                    <button id="print-button" onclick="printResume()">Print Resume</button>
+                </div>
+                <br><br><br>
             </form>
 
-            <div class="resume">
+            <div class="resume"  style="margin-left:350px;">
                 <header>
-                    <h1 id="resume-name">Your Name</h1>
-                    <p id="resume-job-title">Job Title</p>
+                    <h1 id="resume-name" style="text-align: center;">Your Name</h1>
+                    <p id="resume-job-title" style="text-align: center;">Job Title</p>
                 </header>
                 <section id="contact">
-                    <h3>Contact</h3>
+                    <h2>Contact</h2>
                     <ul>
                         <li>Email: <span id="resume-email">your.email@example.com</span></li>
                         <li>Phone: <span id="resume-phone"></span></li>
@@ -163,28 +151,28 @@
                     </ul>
                 </section>
                 <section id="education">
-                    <h3>Education</h3>
+                    <h2>Education</h2>
                     <div class="entry">
-                        <h6 id="resume-degree" >University:</h6>
-                        <p id="resume-university" > Schooling:</p>
-                        <p id="resume-graduation-year" >Graduation Year:</p>
+                        <h3 id="resume-degree" style="font-weight: bold;">University:</h3>
+                        <p id="resume-university" style="font-weight: bold;"> Schooling:</p>
+                        <p id="resume-graduation-year" style="font-weight: bold;">Graduation Year:</p>
                     </div>
                 </section>
                 <section id="expertise">
-                    <h3>Expertise</h3>
+                    <h2>Expertise</h2>
                     <ul id="resume-skills">
                     </ul>
                 </section>
                 <section id="languages">
-                    <h3>Languages</h3>
+                    <h2>Languages</h2>
                     <ul id="resume-spoken-languages">
                     </ul>
                 </section>
                 <section id="experience">
-                    <h3>Experience</h3>
+                    <h2>Experience</h2>
                     <div class="entry">
                         <ul>
-                            <p><span id="resume-employment-dates"></span></p>
+                            <p>NILL<span id="resume-employment-dates"></span></p>
                             <h3 id="resume-job-title"></h3>
                             <p id="resume-company"></p>
                         </ul>
@@ -194,18 +182,19 @@
                     </div>
                 </section>
                 <section id="description">
-                    <h3>Description</h3>
+                    <h2>Description</h2>
                     <p id="resume-personal-description"> </p>
                     <ul>
                     </ul>
                 </section>
             </div>
-            <button class="print_button"  id="print-button" onclick="printResume()">Print Resume</button>
+                <hr style="margin-left: 300px; width: 90%;">
+                <br><br><br>
         </div>
     </main>
-
     <script src="{%static "js/resume.js" %}"></script>
-    
+
 </body>
 
 </html>
+    
