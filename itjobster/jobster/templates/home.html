@@ -12,7 +12,7 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
         {% load static %}
-        <link rel="stylesheet" href="{%static "css/home.css" %}">
+        {% comment %} <link rel="stylesheet" href="{%static "css/home.css" %}"> {% endcomment %}
 
     <main class="d-flex flex-nowrap">
         <div class="d-flex flex-column p-5 text-bg-dark" style="width: 230px; height:739px;position: fixed;">
@@ -22,23 +22,19 @@
             </h1>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link active ">
-                        <svg class="bi pe-none " width="1" height="16">
-                        </svg>
+                <li>
+                    <a href="{% url 'home' %}" class="nav-link active text-white"- style="text-align: center;">
                         Home
                     </a>
                 </li>
-                <li>
-                    <a href="{% url 'resume' %}" class="nav-link text-white" onclick="window.location='resume.html';">
-                        <svg class="bi pe-none me-2" width="" height="16">
-                            <use xlink:href="#speedometer2"></use>
-                        </svg>
+                <br>
+                <li class="nav-item">
+                    <a href="{% url 'resume' %}" class="nav-link text-white" style="text-align: center;">
                         My Resume
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="#" class="nav-link text-white" style="text-align: center;">
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -46,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="#" class="nav-link text-white" style="text-align: center;">
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -54,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="#" class="nav-link text-white" style="text-align: center;">
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#people-circle"></use>
                         </svg>
@@ -63,22 +59,13 @@
                 </li>
             </ul>
             <hr>
-            <div class="dropdown">
-                <a href="#" class=" align-items-center text-white text-decoration-none dropdown-toggle"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="{%static "img/person.svg" %}" width="32">
-                    <strong> Meanu</strong>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="#">Sign out</a></li>
-                </ul>
-            </div>
+                <div>
+                    <a href="{% url 'front' %}" class="text-white text-decoration-none" onclick="window.location='signup.html';"
+                        style="width: 10px; padding-left: 0%;color: aqua;">
+                        <img src="{%static "P:\SE\Software-Engineering\itjobster\jobster\static\img\signout.svg" %}" width="30">
+                        <strong>Sign out</strong>
+                    </a>
+                </div>
         </div>
         <div class="col-lg-10">
             <div class="card text-center rounded-5"
