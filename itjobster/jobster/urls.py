@@ -11,4 +11,5 @@ urlpatterns = [
     path("clogin",views.clogin,name="clogin"),
     path("employeelogin",views.employeelogin,name="employeelogin"),
     path("alogin",views.alogin,name="alogin"),
+    path("resume",views.resume,name="resume"),
 ]

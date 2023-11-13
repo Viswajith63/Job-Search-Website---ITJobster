@@ -92,3 +92,7 @@ def alogin(request):
                else:
                        messages.error(request,'Invalid Credentials')
                        return HttpResponse("USER NOT FOUND")
+               
+def resume(request):
+        if request.method=="GET":
+                return render(request,"resume.html")
