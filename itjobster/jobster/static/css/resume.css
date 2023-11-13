@@ -1,39 +1,15 @@
-/* styles.css */
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.res{
-    margin-left: 260px;
-}
-
 .resume {
     display: none;
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
+    border-radius: 20px;
 }
 
-header {
+.flex-column-li {
     text-align: center;
-}
-
-h1 {
-    color: #333;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-}
-
-h3{
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 p {
@@ -46,32 +22,43 @@ ul {
     padding: 0;
 }
 
-li {
+.res-li {
     margin: 5px 0;
 }
 
-.entry {
+.res-.entry {
     margin-bottom: 20px;
 }
 
+textarea {
+    margin-left: 250px;
 
-form {
+}
+
+.res-form {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
+h2 {
+    text-decoration: underline;
+    color: #4a4545;
+}
+
 label {
     display: block;
     font-weight: bold;
+    margin-left: 250px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"] {
-    width: 100%;
+.res input[type="text"],
+.res input[type="email"],
+.res input[type="tel"],
+.res input[type="url"] {
+    width: 98%;
     padding: 5px;
+    margin-left: 250px;
     margin-bottom: 10px;
 }
 
@@ -80,41 +67,39 @@ input[type="email"]:last-child,
 input[type="tel"]:last-child,
 input[type="url"]:last-child {
     margin-bottom: 20px;
+    margin-left: 250px;
 }
 
-input[type="submit"] {
+
+.res input[type="submit"] {
     background-color: #0077cc;
     color: #fff;
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
     cursor: pointer;
+    margin-left: 250px;
+    margin-top: 5px;
 }
 
-input[type="submit"]:hover {
+.res input[type="submit"]:hover {
     background-color: #0055aa;
+    margin-left: 250px;
+
 }
 
 #print-button {
-    display: block;
+    margin-top: 5px;
     position: absolute;
-    
+    right: 10px;
     padding: 10px 20px;
-    border-radius: 15px;
+    border-radius: 20px;
     background-color: #0077cc;
     color: #fff;
     border: none;
     cursor: pointer;
-    left: 60%;
-    transform: translateX(-60%);
-    
-  }
-  
-#print-button:hover {
-    background-color: #0055aa;  
 }
 
-#generate-button{
-    margin-left: 350px;
-    
+#print-button:hover {
+    background-color: #0055aa;
 }
