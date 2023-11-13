@@ -23,18 +23,18 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li>
-                    <a href="#" class="nav-link text-white" onclick="window.location='home.html';">
+                    <a href="{% url 'home' %}" class="nav-link text-white"- style="text-align: center;">
                         Home
                     </a>
                 </li>
                 <br>
                 <li class="nav-item">
-                    <a href="#" class="nav-link active text-white" onclick="window.location='Resume.html';">
+                    <a href="{% url 'resume' %}" class="nav-link active text-white" style="text-align: center;">
                         My Resume
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="#" class="nav-link text-white" style="text-align: center;">
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="#" class="nav-link text-white" style="text-align: center;">
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -50,7 +50,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="#" class="nav-link text-white" style="text-align: center;">
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#people-circle"></use>
                         </svg>
@@ -60,7 +60,7 @@
             </ul>
             <hr>
             <div>
-                <a href="#" class="text-white text-decoration-none" onclick="window.location='signup.html';"
+                <a href="{% url 'front' %}" class="text-white text-decoration-none" onclick="window.location='signup.html';"
                     style="width: 10px; padding-left: 0%;color: aqua;">
                     <img src="{%static "P:\SE\Software-Engineering\itjobster\jobster\static\img\signout.svg" %}" width="30">
                     <strong>Sign out</strong>
