@@ -184,7 +184,7 @@ const checkclocation = () => {
 
   if (!isRequired(clocation)) {
     showError(clocationE2, "Location cannot be blank.");
-  } else if (!regName.test(location)) {
+  } else if (!regName.test(clocation)) {
     showError(clocationE2, "Invalid location given");
   } else {
     showSuccess(clocationE2);
@@ -361,10 +361,10 @@ c_form.addEventListener(
         checkcname();
         break;
       case "clocation":
-        checkclocation();
+        checkclocation(); // Fix the function name here
         break;
       case "cphoneno":
-        checkcPhoneno();
+        checkcphoneno();
         break;
       case "cpassword":
         checkcPassword();
