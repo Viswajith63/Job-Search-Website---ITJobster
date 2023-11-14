@@ -88,7 +88,7 @@ const checklocation = () => {
   const location = locationE1.value.trim();
 
   if (!isRequired(location)) {
-    showError(locationE1, "Username cannot be blank.");
+    showError(locationE1, "location cannot be blank.");
   } else if (!regName.test(location)) {
     showError(locationE1, "Invalid location given");
   } else {
@@ -175,23 +175,7 @@ const checkcname = () => {
   return valid;
 };
 
-const checkclocation = () => {
-  let valid = false;
 
-  var regName = /^[a-zA-Z]+$/;
-
-  const clocation = clocationE2.value.trim();
-
-  if (!isRequired(clocation)) {
-    showError(clocationE2, "Location cannot be blank.");
-  } else if (!regName.test(location)) {
-    showError(clocationE2, "Invalid location given");
-  } else {
-    showSuccess(clocationE2);
-    valid = true;
-  }
-  return valid;
-};
 
 const checkcphoneno = () => {
   let valid = false;
@@ -361,10 +345,10 @@ c_form.addEventListener(
         checkcname();
         break;
       case "clocation":
-        checkclocation();
+        console.log(clocationE2);
         break;
       case "cphoneno":
-        checkcPhoneno();
+        checkcphoneno();
         break;
       case "cpassword":
         checkcPassword();
