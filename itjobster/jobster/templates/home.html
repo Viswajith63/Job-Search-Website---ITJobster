@@ -66,8 +66,8 @@
                     <p class="card-text">Job-Skills:{{j.jskills}}</p>
                     <p class="card-text">Job-Experience:{{j.jexperience}}</p>
                     <p class="card-text">Job-Vacancies:{{j.jvacancies}}</p>
-                    <input type="number" name="Job-id" value="{{j.jid}}" hidden>
-                    <input type="number" name="email" value="" hidden>
+                    <input type="number" name="job-id" value="{{ j.jid }}" hidden>
+                    <input type="email" id="email" name="email" value="" hidden>
                     <button onclick="fun()" class="btn btn-primary" >Apply</button>
                 </div>
                
@@ -79,7 +79,8 @@
             const fun=()=>{
                 const r=prompt("Enter email id");
                 document.getElementById('email').value=r;
-                document.getElementById('myform').submit();
+                console.log(document.getElementById('email').value)
+                
             }
         </script>
     </main>
