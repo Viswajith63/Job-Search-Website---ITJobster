@@ -9,9 +9,8 @@ urlpatterns = [
     path("home",views.home,name="home"),
     path("register",views.register,name="register"),
     path("clogin",views.clogin,name="clogin"),
-    path("employeelogin",views.employeelogin,name="employeelogin"),
     path("alogin",views.alogin,name="alogin"),
     path("resume",views.resume,name="resume"),
-    path("postjob",views.postjob,name="postjob"),
-    path("cprofile",views.cprofile,name="cprofile"),
+    path("postjob/<int:cid>",views.postjob,name="postjob"),
+    path("coprofile",views.coprofile,name="cprofile"),
 ]

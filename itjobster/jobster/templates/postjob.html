@@ -40,11 +40,7 @@
            
                
                 <br>
-                <li>
-                    <a href="{% url 'cprofile' %}" class="nav-link text-white" onclick="window.location='e_profile.html'">
-                        Profile
-                    </a>
-                </li>
+               
             </ul>
             <hr>
             <div>
@@ -66,7 +62,8 @@
             </div>
             <br><br>
             <div class="orgprofile" style="margin-left: 600px;width: 40%;font-size: large;">
-                <form id="Organisation-profile">
+                <form id="Organisation-profile" method="POST" action="/postjob" >
+                    {% csrf_token %}
                     <div class="card rounded-5" style="padding: 20px;">
                         <h2>Job Overview</h2>
                         <br>
@@ -78,7 +75,7 @@
                         <br>
 
                         <label for="job-type">Job Type (Internship/Part-Time/Full- Time)</label>
-                        <input type="text" id="vacancies" name="job-type">
+                        <input type="text" id="vacancies" name="jobtype">
                         <br>
                        
 
