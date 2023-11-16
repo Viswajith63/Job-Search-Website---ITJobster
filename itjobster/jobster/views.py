@@ -77,7 +77,7 @@ def clogin(request):
                
 def employeelogin(request):
         if request.method=="GET":
-                return render(request,"employeelogin.html")
+                return render(request,"cprofile.html")
         
 def alogin(request):
         if request.method=='GET':
@@ -96,3 +96,38 @@ def alogin(request):
 def resume(request):
         if request.method=="GET":
                 return render(request,"resume.html")
+        if request.method=="POST":
+                print("fuck u")
+                name=request.POST.get('name')
+                job_title=request.POST.get('job-title')
+                email=request.POST.get('email')
+                phone=request.POST.get('phone')
+                website=request.POST.get('website')
+                linkedin=request.POST.get('linkedin')
+                degree=request.POST.get('degree')
+                university=request.POST.get('university')
+                graduationyear=request.POST.get('graduation-year')
+                skills=request.POST.get('skills')
+                spokenlanguages=request.POSt.get('spoken-languages')
+                job=request.POSt.get('job')
+                company=request.pOSt.get('company')
+                employmentdates=request.POST.get('employment-dates')
+                jobdescription=request.POST.get('job-description')
+                personaldescription=request.POST.get('personal-description')
+                obj3=Resume(name=name,job_title=job_title,email=email,phone=phone,website=website,linkedin=linkedin,degree=degree,university=university,
+                            graduation_year=graduationyear,skills=skills,spoken_languages=spokenlanguages,job_experience=job,personal_description=personaldescription)
+                obj3.save()
+                messages.success(request,"Resume registered successfully")
+                return redirect("/resume")
+        
+
+def postjob(request):
+        if request.method=="GET":
+                return render(request,"postjob.html")
+
+
+
+def cprofile(request):
+        if request.method=="GET":
+                return render(request,"cprofile.html")
+        
