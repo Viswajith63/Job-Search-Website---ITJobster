@@ -54,6 +54,7 @@ def home(request):
                 email=request.POST.get('email')
                 ak=applicant(jid=postjob.objects.get(pk=jid),resume=Resume.objects.get(pk=email))
                 ak.save()
+                return HttpResponse(status=204)
 
 
 def register(request):
