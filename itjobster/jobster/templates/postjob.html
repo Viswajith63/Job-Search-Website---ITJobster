@@ -32,8 +32,9 @@
                         Post Job
                     </a>
                 </li>
+                </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="{% url 'checkresume' data %}" class="nav-link text-white">
                         Applications
                     </a>
                 </li>
@@ -67,6 +68,7 @@
                     <div class="card rounded-5" style="padding: 20px;">
                         <h2>Job Overview</h2>
                         <br>
+                        <input type="number" name="cid" value="{{ data }}" hidden>
                         <label for="job-title">Job Title:</label>
                         <input type="text" id="name" name="title" required><br>
 

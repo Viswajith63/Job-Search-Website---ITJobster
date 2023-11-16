@@ -41,6 +41,7 @@ class Resume(models.Model):
 
 class postjob(models.Model):
     jid=models.AutoField(primary_key=True,unique=True)
+    cid=models.IntegerField()
     jtitle = models.CharField(max_length=255)
     jlocation = models.CharField(max_length=100)
     jtype = models.CharField(max_length=255)
@@ -49,6 +50,7 @@ class postjob(models.Model):
     jvacancies = models.IntegerField()
 
 class cprofile(models.Model):
+    cid=models.IntegerField()
     cname = models.CharField(max_length=255)
     cwebsite = models.URLField(default="https://")
     clocations = models.TextField()  
@@ -57,3 +59,10 @@ class cprofile(models.Model):
     jposteremail = models.EmailField()
     jposterphone = models.CharField(max_length=20)
     description = models.TextField()
+
+class applicant(models.Model):
+    aid=models.AutoField(primary_key=True,unique=True)
+    resume = models.ForeignKey(Resume, on_delete=models.CASCADE)
+    jid=models.ForeignKey(postjob,on_delete=models.CASCADE)
+    
+

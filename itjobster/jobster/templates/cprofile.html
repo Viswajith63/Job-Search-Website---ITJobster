@@ -28,6 +28,7 @@
         <div class="orgprofile col-lg-8 col-md-8 col-sm-12">
             <form id="Organisation-profile" method="POST" action="/coprofile">
                 {% csrf_token %}
+                <input type="number" value="{{ cid }}"  hidden name="cid">
                 <h2>Organisation Details</h2>
                 <label for="company-name">Company's Name:</label>
                 <input type="text" id="name" name="name" required><br>
