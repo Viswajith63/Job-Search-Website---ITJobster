@@ -218,9 +218,7 @@ const checkcPassword = () => {
     showError(cpasswordE2, "Password cannot be blank.");
   } else if (!isPasswordSecure(cpassword)) {
     showError(
-      passwordEl,
-      "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)"
-    );
+      cpasswordE2, "Error in Password");
   } else {
     showSuccess(cpasswordE2);
     valid = true;
@@ -267,7 +265,7 @@ const showSuccess = (input) => {
 };
 
 u_form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  console.log();
 
   let isUsernameValid = checkUsername(),
     isEmailValid = checkEmail(),
@@ -286,12 +284,13 @@ u_form.addEventListener("submit", function (e) {
     islocationvalid &&
     isaadharnovalid;
 
-  if (isFormValid) {
+  if (!isFormValid) {
+    e.preventDefault();
   }
 });
 
 c_form.addEventListener("submit", function (e) {
-  e.preventDefault();
+  console.log("sezxgbhj");
 
   let iscinValid = checkcin(),
     iscnameValid = checkcname(),
@@ -305,8 +304,8 @@ c_form.addEventListener("submit", function (e) {
     iscphonenovalid &&
     isclocationvalid &&
     iscPasswordValid;
-  if (iscFormValid) {
-    
+  if (!iscFormValid) {
+    e.preventDefault();
   }
 });
 
@@ -323,8 +322,10 @@ const debounce = (fn, delay = 500) => {
 };
 
 u_form.addEventListener(
+
   "input",
   debounce(function (e) {
+    console.log();
     switch (e.target.id) {
       case "username":
         checkUsername();
@@ -354,6 +355,7 @@ u_form.addEventListener(
 c_form.addEventListener(
   "input",
   debounce(function (e) {
+    console.log();
     switch (e.target.id) {
       case "cin":
         checkcin();

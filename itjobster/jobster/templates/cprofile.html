@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="e_profile.css">
+</head>
+
+<body>
+    {% load static %}
+    <link rel="stylesheet" href="{%static "css/cprofile.css" %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <main>
+        <div class="d-flex flex-column p-5 text-bg-dark" style="text-align: center; height:739px;position: fixed;">
+            <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                <span class="fs-4">ITJosbster</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="{% url 'postjob' %}" class="nav-link text-white" onclick="window.location='home.html';">
+                        <svg class="bi pe-none me-2" width="15" height="16">
+                        </svg>
+                        Post Job
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white" onclick="window.location='Resume.html';">
+                        <svg class="bi pe-none me-2" width="15" height="16">
+                            <use xlink:href="#speedometer2"></use>
+                        </svg>
+                        Applications
+                    </a>
+                </li>
+              
+                <li>
+                    <a href="{% url 'cprofile' %}" class="nav-link active text-white">
+                        <svg class="bi pe-none me-2" width="15" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Profile
+                    </a>
+                </li>
+               
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="{% url 'front' %}" class="text-white text-decoration-none" onclick="window.location='signup.html';"
+                style="width: 10px; padding-left: 0%;color: aqua;">
+                <img src="{%static "img\signout.svg" %}" width="30">
+                <strong>Sign out</strong>
+            </a>
+            </div>
+        </div>
+        <div class="Mainheader col-lg-10" style="width: 82%;">
+            <div class="p-5 text-center bg-body-tertiary rounded-3">
+                <h1 class="text-body-emphasis">Create your Organisation Profile</h1>
+                <p class="lead">
+                    Everything you need to make great hires. Post jobs, reachout and examine your applicants...
+                </p>
+            </div>
+        </div>
+
+        <div class="orgprofile col-lg-8 col-md-8 col-sm-12">
+            <form id="Organisation-profile">
+
+
+                <h2>Organisation Details</h2>
+                <label for="company-name">Company's Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="website">Company's Website:</label>
+                <input type="url" id="website" name="website" value="https://"><br>
+
+                <label for="Company's locations">Company's locations</label>
+                <div id="inputContainer">
+                    <!-- Input fields will be added here dynamically -->
+                </div>
+                <button type="button" id="addlocation" onclick="addInputField()">Add Location</button>
+
+                <script>
+                    function addInputField() {
+                        var inputContainer = document.getElementById("inputContainer");
+
+                        var newInput = document.createElement("input");
+                        newInput.type = "text";
+                        newInput.name = "Locations";
+
+                        inputContainer.appendChild(newInput);
+                    }
+                </script>
+
+                <br>
+                <h3>Jobposter's Details</h3>
+                <label for="jobposter-name">Your Name</label>
+                <input type="text" id="job-title" name="job-title" required><br>
+
+                <label for="jobposter-designation">Your Designation</label>
+                <input type="text" id="job-title" name="job-title" required><br>
+
+                <label for="jobposter-email">Your Email</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="jobposter-phone">Phone no</label>
+                <input type="tel" id="phone" name="phone" required><br>
+
+                <label for="linkedin" value="https://">Your LinedIn Profile</label>
+                <input type="url" id="linkedin" name="linkedin" value="https://"><br>
+
+                <h3>Description</h3>
+                <label for="personal-description">About:</label>
+                <textarea id="company-description" name="company-description" rows="4" cols="50"
+                    required></textarea><br>
+
+                <button type="submit" id="submit-button">Save and Submit</button>
+
+                <br><br><br>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
