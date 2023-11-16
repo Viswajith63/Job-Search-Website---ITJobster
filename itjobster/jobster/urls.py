@@ -11,6 +11,6 @@ urlpatterns = [
     path("clogin",views.clogin,name="clogin"),
     path("alogin",views.alogin,name="alogin"),
     path("resume",views.resume,name="resume"),
-    path("postjob/<int:cid>",views.postjob,name="postjob"),
+    path("postjobs",views.postjobs,name="postjobs"),
     path("coprofile",views.coprofile,name="cprofile"),
 ]

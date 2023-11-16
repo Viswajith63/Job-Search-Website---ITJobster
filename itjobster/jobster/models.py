@@ -51,20 +51,18 @@ class Resume(models.Model):
 
 
 class postjob(models.Model):
-    cid=models.ForeignKey(company,on_delete=models.CASCADE)
     jid=models.AutoField(primary_key=True,unique=True)
     jtitle = models.CharField(max_length=255)
-    jlocation = models.IntegerField()
+    jlocation = models.CharField(max_length=100)
     jtype = models.CharField(max_length=255)
     jskills = models.TextField()
     jexperience = models.TextField()
     jvacancies = models.IntegerField()
 
 class cprofile(models.Model):
-    cid=models.ForeignKey(company,on_delete=models.CASCADE)
     cname = models.CharField(max_length=255)
     cwebsite = models.URLField(default="https://")
-    clocations = models.TextField()  # Assuming multiple locations will be stored as text
+    clocations = models.TextField()  
     jpostername = models.CharField(max_length=255)
     jposterdesignation = models.CharField(max_length=255)
     jposteremail = models.EmailField()
