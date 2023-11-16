@@ -15,7 +15,8 @@ class user(models.Model):
 
 
 class company(models.Model):
-    gstin=models.CharField(max_length=100,primary_key=True,unique=True)
+    cid=models.AutoField(primary_key=True,unique=True)
+    gstin=models.CharField(max_length=100,unique=True)
     companyname=models.CharField(max_length=100)
     location=models.CharField(max_length=100)
     contact=models.BigIntegerField()
@@ -47,3 +48,25 @@ class Resume(models.Model):
     
     # Description
     personal_description = models.TextField()
+
+
+class postjob(models.Model):
+    cid=models.ForeignKey(company,on_delete=models.CASCADE)
+    jid=models.AutoField(primary_key=True,unique=True)
+    jtitle = models.CharField(max_length=255)
+    jlocation = models.IntegerField()
+    jtype = models.CharField(max_length=255)
+    jskills = models.TextField()
+    jexperience = models.TextField()
+    jvacancies = models.IntegerField()
+
+class cprofile(models.Model):
+    cid=models.ForeignKey(company,on_delete=models.CASCADE)
+    cname = models.CharField(max_length=255)
+    cwebsite = models.URLField(default="https://")
+    clocations = models.TextField()  # Assuming multiple locations will be stored as text
+    jpostername = models.CharField(max_length=255)
+    jposterdesignation = models.CharField(max_length=255)
+    jposteremail = models.EmailField()
+    jposterphone = models.CharField(max_length=20)
+    description = models.TextField()

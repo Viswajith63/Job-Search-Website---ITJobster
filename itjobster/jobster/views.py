@@ -70,15 +70,14 @@ def clogin(request):
                 creds=company.objects.filter(gstin=gstin,password=password)
                 if creds:
                         messages.success(request,"You logged in")
-                        return redirect('/employeelogin')
+                        return render(request,"cprofile.html",{
+                                "cid":creds[0].cid
+                        })
                 else:
                        messages.error(request,'Invalid Credentials')
                        return HttpResponse("USER NOT FOUND")
                
-def employeelogin(request):
-        if request.method=="GET":
-                return render(request,"cprofile.html")
-        
+
 def alogin(request):
         if request.method=='GET':
                 return render(request,"login.html")
@@ -97,7 +96,7 @@ def resume(request):
         if request.method=="GET":
                 return render(request,"resume.html")
         if request.method=="POST":
-                print("fuck u")
+                
                 name=request.POST.get('name')
                 job_title=request.POST.get('job-title')
                 email=request.POST.get('email')
@@ -121,13 +120,40 @@ def resume(request):
                 return redirect("/resume")
         
 
-def postjob(request):
+def postjob(request,cid=-1):
         if request.method=="GET":
                 return render(request,"postjob.html")
+        if request.method=="POST":
+                obj=company.objects.get(pk=cid)
+                jtitle=request.POST.get('title')
+                jlocation=request.POST.get('location')
+                jtype=request.POST.get('jobtype')
+                skills=request.POST.get('skills')
+                exp=request.POST.get('experience')
+                vacancy=request.POST.get('vacancies')
+                pj=postjob(cid=obj,jtitle=jtitle,jlocation=jlocation,jtype=jtype,jskills=skills,jexperience=exp,jvacancies=vacancy)
+                pj.save()
+                messages.success(request,"Job Posted Successfully!")
+                return redirect("/postjob")
 
 
 
-def cprofile(request):
+
+
+def coprofile(request):
         if request.method=="GET":
                 return render(request,"cprofile.html")
-        
+        if request.method == "POST":
+                cid=request.POST.get('cid')
+                cname=request.POST.get('name')
+                cwebsite=request.POST.get('website')
+                clocations=request.POST.get('locations')
+                jpname=request.POST.get('jpname')
+                jpdes=request.POST.get('jpdes')
+                jpemail=request.POST.get('email')
+                jpphone=request.POST.get('phone')
+                jdes=request.POST.get('cdes')
+                cp=cprofile(cname=cname,cwebsite=cwebsite,clocations=clocations,jpostername=jpname,jposterdesignation=jpdes,jposteremail=jpemail,jposterphone=jpphone,description=jdes)
+                cp.save()
+                messages.success(request,"Company profile created successfully")
+                return redirect('/postjob/'+str(cid))

@@ -11,7 +11,7 @@ admin.site.register(administrator,administratoradmin)
 
 
 class companyadmin(admin.ModelAdmin):
-    list_display=("gstin","companyname","location","contact","password")
+    list_display=("cid","gstin","companyname","location","contact","password")
 admin.site.register(company,companyadmin)
 
 # resumeapp/admin.py
@@ -23,3 +23,11 @@ class ResumeAdmin(admin.ModelAdmin):
 admin.site.register(Resume, ResumeAdmin)
 
 
+class postjobAdmin(admin.ModelAdmin):
+    list_display=('cid','jid','jtitle','jlocation','jtype','jskills','jexperience','jvacancies')
+admin.site.register(postjob,postjobAdmin)
+
+
+class cprofileAdmin(admin.ModelAdmin):
+    list_display = ('cid','cname','cwebsite','clocations','jpostername','jposterdesignation','jposteremail','jposterphone','description')
+admin.site.register(cprofile,cprofileAdmin)
