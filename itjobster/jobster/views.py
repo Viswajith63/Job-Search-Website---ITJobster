@@ -120,21 +120,21 @@ def resume(request):
                 return redirect("/resume")
         
 
-def postjob(request,cid=-1):
+def postjobs(request):
         if request.method=="GET":
                 return render(request,"postjob.html")
         if request.method=="POST":
-                obj=company.objects.get(pk=cid)
+                
                 jtitle=request.POST.get('title')
                 jlocation=request.POST.get('location')
                 jtype=request.POST.get('jobtype')
                 skills=request.POST.get('skills')
                 exp=request.POST.get('experience')
                 vacancy=request.POST.get('vacancies')
-                pj=postjob(cid=obj,jtitle=jtitle,jlocation=jlocation,jtype=jtype,jskills=skills,jexperience=exp,jvacancies=vacancy)
+                pj=postjob(jtitle=jtitle,jlocation=jlocation,jtype=jtype,jskills=skills,jexperience=exp,jvacancies=vacancy)
                 pj.save()
                 messages.success(request,"Job Posted Successfully!")
-                return redirect("/postjob")
+                return redirect("/postjobs")
 
 
 
@@ -144,7 +144,6 @@ def coprofile(request):
         if request.method=="GET":
                 return render(request,"cprofile.html")
         if request.method == "POST":
-                cid=request.POST.get('cid')
                 cname=request.POST.get('name')
                 cwebsite=request.POST.get('website')
                 clocations=request.POST.get('locations')
@@ -156,4 +155,4 @@ def coprofile(request):
                 cp=cprofile(cname=cname,cwebsite=cwebsite,clocations=clocations,jpostername=jpname,jposterdesignation=jpdes,jposteremail=jpemail,jposterphone=jpphone,description=jdes)
                 cp.save()
                 messages.success(request,"Company profile created successfully")
-                return redirect('/postjob/'+str(cid))
+                return redirect('/postjobs')

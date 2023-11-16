@@ -24,10 +24,10 @@ admin.site.register(Resume, ResumeAdmin)
 
 
 class postjobAdmin(admin.ModelAdmin):
-    list_display=('cid','jid','jtitle','jlocation','jtype','jskills','jexperience','jvacancies')
+    list_display=('jid','jtitle','jlocation','jtype','jskills','jexperience','jvacancies')
 admin.site.register(postjob,postjobAdmin)
 
 
 class cprofileAdmin(admin.ModelAdmin):
-    list_display = ('cid','cname','cwebsite','clocations','jpostername','jposterdesignation','jposteremail','jposterphone','description')
+    list_display = ('cname','cwebsite','clocations','jpostername','jposterdesignation','jposteremail','jposterphone','description')
 admin.site.register(cprofile,cprofileAdmin)
