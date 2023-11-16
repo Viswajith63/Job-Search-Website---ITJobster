@@ -122,10 +122,7 @@ const checkPassword = () => {
   if (!isRequired(password)) {
     showError(passwordEl, "Password cannot be blank.");
   } else if (!isPasswordSecure(password)) {
-    showError(
-      passwordEl,
-      "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)"
-    );
+    showError(passwordEl, "Invalid password");
   } else {
     showSuccess(passwordEl);
     valid = true;
@@ -218,7 +215,7 @@ const checkcPassword = () => {
     showError(cpasswordE2, "Password cannot be blank.");
   } else if (!isPasswordSecure(cpassword)) {
     showError(
-      passwordEl,
+      passwordE2,
       "Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)"
     );
   } else {
@@ -267,8 +264,6 @@ const showSuccess = (input) => {
 };
 
 u_form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
   let isUsernameValid = checkUsername(),
     isEmailValid = checkEmail(),
     isagevalid = checkAge(),
@@ -286,12 +281,22 @@ u_form.addEventListener("submit", function (e) {
     islocationvalid &&
     isaadharnovalid;
 
-  if (isFormValid) {
+  console.log(
+    isUsernameValid,
+    isEmailValid,
+    isPasswordValid,
+    isagevalid,
+    isphonenovalid,
+    islocationvalid,
+    isaadharnovalid
+  );
+
+  if (!isFormValid) {
+    e.preventDefault();
   }
 });
 
 c_form.addEventListener("submit", function (e) {
-  e.preventDefault();
 
   let iscinValid = checkcin(),
     iscnameValid = checkcname(),
@@ -305,7 +310,9 @@ c_form.addEventListener("submit", function (e) {
     iscphonenovalid &&
     isclocationvalid &&
     iscPasswordValid;
-  if (iscFormValid) {
+  if (!iscFormValid) {
+    e.preventDefault();
+
   }
 });
 
