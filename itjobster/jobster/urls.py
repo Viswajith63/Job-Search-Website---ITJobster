@@ -12,4 +12,6 @@ urlpatterns = [
     path("employeelogin",views.employeelogin,name="employeelogin"),
     path("alogin",views.alogin,name="alogin"),
     path("resume",views.resume,name="resume"),
+    path("postjob",views.postjob,name="postjob"),
+    path("cprofile",views.cprofile,name="cprofile"),
 ]

@@ -14,3 +14,12 @@ class companyadmin(admin.ModelAdmin):
     list_display=("gstin","companyname","location","contact","password")
 admin.site.register(company,companyadmin)
 
+# resumeapp/admin.py
+
+
+class ResumeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'job_title', 'email', 'phone','website','linkedin', 'degree','university','graduation_year','skills','spoken_languages','job_experience','personal_description')
+
+admin.site.register(Resume, ResumeAdmin)
+
+

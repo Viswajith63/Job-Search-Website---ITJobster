@@ -30,7 +30,7 @@
                 <br>
                 <li class="nav-item">
                     <a href="{% url 'resume' %}" class="nav-link active text-white" style="text-align: center;">
-                        My Resume
+                        Generate Resume
                     </a>
                 </li>
                 <li>
@@ -38,7 +38,7 @@
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
-                        Orders
+                        My Resume
                     </a>
                 </li>
                 <li>
@@ -46,7 +46,7 @@
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
-                        Products
+                        Applications
                     </a>
                 </li>
                 <li>
@@ -54,7 +54,7 @@
                         <svg class="bi pe-none me-2" width="" height="16">
                             <use xlink:href="#people-circle"></use>
                         </svg>
-                        Customers
+                        Profile
                     </a>
                 </li>
             </ul>
@@ -62,13 +62,14 @@
             <div>
                 <a href="{% url 'front' %}" class="text-white text-decoration-none" onclick="window.location='signup.html';"
                     style="width: 10px; padding-left: 0%;color: aqua;">
-                    <img src="{%static "P:\SE\Software-Engineering\itjobster\jobster\static\img\signout.svg" %}" width="30">
+                    <img src="{%static "img\signout.svg" %}" width="30">
                     <strong>Sign out</strong>
                 </a>
             </div>
         </div>
         <div class="res col-lg-10">
-            <form id="resume-form">
+            <form id="resume-form" method="POST" action="/resume" >
+                {% csrf_token %}
                 <h1 style="color: #333; font-size: 30px;margin-top: 30px; margin-left: 720px;">Resume Generator</h1>
 
                 <h2 style="margin-left:250px;">Personal Details</h2>
@@ -110,7 +111,7 @@
 
                 <h2 style="margin-left:250px;">Experience</h2>
                 <label for="job-title">Job Title:</label>
-                <input type="text" id="job-title" name="job-title"><br>
+                <input type="text" id="job-title" name="job"><br>
 
                 <label for="company">Company:</label>
                 <input type="text" id="company" name="company"><br>
@@ -128,6 +129,7 @@
                 <br>
                 <div>
                     <input type="submit" id="submit_button" value="Generate Resume">
+                    <button type="submit" id="sumbit">Save Resume</button>
                     <button id="print-button" onclick="printResume()">Print Resume</button>
                 </div>
                 <br><br><br>
