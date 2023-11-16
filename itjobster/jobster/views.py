@@ -44,7 +44,15 @@ def login(request):
 
 def home(request):
         if request.method=="GET":
-                return render(request,"home.html")
+                obj=postjob.objects.all()
+                lis=[]
+                for i in obj:
+                        if i.jvacancies>0:
+                                lis.append(i)
+                return render(request,"home.html",{
+                        "data":lis,
+                })
+        
 
 
 def register(request):
@@ -96,7 +104,6 @@ def resume(request):
         if request.method=="GET":
                 return render(request,"resume.html")
         if request.method=="POST":
-                
                 name=request.POST.get('name')
                 job_title=request.POST.get('job-title')
                 email=request.POST.get('email')
@@ -107,19 +114,15 @@ def resume(request):
                 university=request.POST.get('university')
                 graduationyear=request.POST.get('graduation-year')
                 skills=request.POST.get('skills')
-                spokenlanguages=request.POSt.get('spoken-languages')
-                job=request.POSt.get('job')
-                company=request.pOSt.get('company')
-                employmentdates=request.POST.get('employment-dates')
-                jobdescription=request.POST.get('job-description')
+                spokenlanguages=request.POST.get('spoken-languages')
+                job=request.POST.get('job')
                 personaldescription=request.POST.get('personal-description')
                 obj3=Resume(name=name,job_title=job_title,email=email,phone=phone,website=website,linkedin=linkedin,degree=degree,university=university,
                             graduation_year=graduationyear,skills=skills,spoken_languages=spokenlanguages,job_experience=job,personal_description=personaldescription)
                 obj3.save()
                 messages.success(request,"Resume registered successfully")
-                return redirect("/resume")
+                return HttpResponse(status=204) 
         
-
 def postjobs(request):
         if request.method=="GET":
                 return render(request,"postjob.html")
@@ -156,3 +159,16 @@ def coprofile(request):
                 cp.save()
                 messages.success(request,"Company profile created successfully")
                 return redirect('/postjobs')
+        
+def myresume(request):
+        if request.method=="GET":
+                return render(request,"myresume.html",{
+                        "boo":False,
+                })
+        if request.method=="POST":
+                email=request.POST.get('email')
+                obj=Resume.objects.get(pk=email)
+                return render(request,"myresume.html",{
+                        "boo":True,
+                        "data":obj,
+                })

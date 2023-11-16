@@ -13,4 +13,5 @@ urlpatterns = [
     path("resume",views.resume,name="resume"),
     path("postjobs",views.postjobs,name="postjobs"),
     path("coprofile",views.coprofile,name="cprofile"),
+    path("myresume",views.myresume,name="myresume")
 ]
