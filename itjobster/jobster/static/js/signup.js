@@ -306,6 +306,7 @@ c_form.addEventListener("submit", function (e) {
     isclocationvalid &&
     iscPasswordValid;
   if (iscFormValid) {
+    
   }
 });
 
