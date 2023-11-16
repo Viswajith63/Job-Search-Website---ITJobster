@@ -54,16 +54,34 @@
                 </div>
         </div>
         <div class="col-lg-10">
+            {%for j in data%}
+            <form  id="myform" action="" method="post">
+                {% csrf_token %}
             <div class="card text-center rounded-5"
                 style="min-height: 200px;min-width: 100px; margin-left: 400px;margin-top: 80px;max-height: fit-content;border-width: 10px;">
                 <div class="card-body" style="margin-top: 20px;">
-                    <h5 class="card-title">Company Name</h5>
-                    <p class="card-text">Company Descriptions</p>
-                    <p></p>
-                    <a href="#" class="btn btn-primary" >Apply</a>
+                    <h5 class="card-title">Job-title:{{j.jtitle}}</h5>
+                    <p class="card-text">Job-location:{{j.jlocation}}</p>
+                    <p class="card-text">Job-Type:{{j.jtype}}</p>
+                    <p class="card-text">Job-Skills:{{j.jskills}}</p>
+                    <p class="card-text">Job-Experience:{{j.jexperience}}</p>
+                    <p class="card-text">Job-Vacancies:{{j.jvacancies}}</p>
+                    <input type="number" name="Job-id" value="{{j.jid}}" hidden>
+                    <input type="number" name="email" value="" hidden>
+                    <button onclick="fun()" class="btn btn-primary" >Apply</button>
                 </div>
+               
             </div>
+        </form>
+            {%endfor%}
         </div>
+        <script>
+            const fun=()=>{
+                const r=prompt("Enter email id");
+                document.getElementById('email').value=r;
+                document.getElementById('myform').submit();
+            }
+        </script>
     </main>
 
 </body>

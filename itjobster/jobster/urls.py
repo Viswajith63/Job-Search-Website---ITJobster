@@ -13,5 +13,8 @@ urlpatterns = [
     path("resume",views.resume,name="resume"),
     path("postjobs",views.postjobs,name="postjobs"),
     path("coprofile",views.coprofile,name="cprofile"),
-    path("myresume",views.myresume,name="myresume")
+    path("myresume",views.myresume,name="myresume"),
+    path("checkresume/<int:cid>",views.checkresume,name="checkresume"),
+    path("goto/<int:cid>",views.goto,name="goto"),
+    path("admin1",views.admin1,name="admin1"),
 ]

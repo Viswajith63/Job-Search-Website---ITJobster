@@ -45,14 +45,15 @@ def login(request):
 def home(request):
         if request.method=="GET":
                 obj=postjob.objects.all()
-                lis=[]
-                for i in obj:
-                        if i.jvacancies>0:
-                                lis.append(i)
                 return render(request,"home.html",{
-                        "data":lis,
+                        "data":obj,
                 })
         
+        if request.method=="POST":
+                jid=request.POST.get('job-id')
+                email=request.POST.get('email')
+                ak=applicant(jid=postjob.objects.get(pk=jid),resume=Resume.objects.get(pk=email))
+                ak.save()
 
 
 def register(request):
@@ -78,6 +79,7 @@ def clogin(request):
                 creds=company.objects.filter(gstin=gstin,password=password)
                 if creds:
                         messages.success(request,"You logged in")
+                        print(creds[0].cid)
                         return render(request,"cprofile.html",{
                                 "cid":creds[0].cid
                         })
@@ -95,7 +97,7 @@ def alogin(request):
                creds=administrator.objects.filter(adminname='adminitjobster@gmail.com',adminpass='Admin@itjobster')
                if creds:
                        messages.success(request,"You are logged in")
-                       return redirect("/home")
+                       return redirect("/admin1")
                else:
                        messages.error(request,'Invalid Credentials')
                        return HttpResponse("USER NOT FOUND")
@@ -127,19 +129,17 @@ def postjobs(request):
         if request.method=="GET":
                 return render(request,"postjob.html")
         if request.method=="POST":
-                
+                cid=request.POST.get('cid')
                 jtitle=request.POST.get('title')
                 jlocation=request.POST.get('location')
                 jtype=request.POST.get('jobtype')
                 skills=request.POST.get('skills')
                 exp=request.POST.get('experience')
                 vacancy=request.POST.get('vacancies')
-                pj=postjob(jtitle=jtitle,jlocation=jlocation,jtype=jtype,jskills=skills,jexperience=exp,jvacancies=vacancy)
+                pj=postjob(cid=cid,jtitle=jtitle,jlocation=jlocation,jtype=jtype,jskills=skills,jexperience=exp,jvacancies=vacancy)
                 pj.save()
                 messages.success(request,"Job Posted Successfully!")
-                return redirect("/postjobs")
-
-
+                return redirect("/postjob")
 
 
 
@@ -147,6 +147,8 @@ def coprofile(request):
         if request.method=="GET":
                 return render(request,"cprofile.html")
         if request.method == "POST":
+                cid=request.POST.get('cid')
+                print(cid)
                 cname=request.POST.get('name')
                 cwebsite=request.POST.get('website')
                 clocations=request.POST.get('locations')
@@ -155,10 +157,12 @@ def coprofile(request):
                 jpemail=request.POST.get('email')
                 jpphone=request.POST.get('phone')
                 jdes=request.POST.get('cdes')
-                cp=cprofile(cname=cname,cwebsite=cwebsite,clocations=clocations,jpostername=jpname,jposterdesignation=jpdes,jposteremail=jpemail,jposterphone=jpphone,description=jdes)
+                cp=cprofile(cid=cid,cname=cname,cwebsite=cwebsite,clocations=clocations,jpostername=jpname,jposterdesignation=jpdes,jposteremail=jpemail,jposterphone=jpphone,description=jdes)
                 cp.save()
                 messages.success(request,"Company profile created successfully")
-                return redirect('/postjobs')
+                return render(request,"postjob.html",{
+                        "data":cid
+                })
         
 def myresume(request):
         if request.method=="GET":
@@ -172,3 +176,37 @@ def myresume(request):
                         "boo":True,
                         "data":obj,
                 })
+        
+def checkresume(request,cid=-1):
+        if request.method=="GET":
+                o1=postjob.objects.filter(cid=cid)
+                lis=[]
+                for i in o1:
+                        lis.append(i.jid)
+                o2=applicant.objects.filter(jid__in=lis)
+                li2=[]
+                for i in o2.values():
+                        li2.append(Resume.objects.get(pk=i['resume_id']))
+                return render(request,"application.html",{
+                        "data":o2,
+                        "data1":li2
+                })
+        if request.method=="POST":
+                email=request.POST.get('email')
+                obj=Resume.objects.get(pk=email)
+                print(cid)
+                return render(request,"displayresume.html",{
+                        "data":obj,
+                        "data1":cid,
+                })
+        
+def goto(request,cid=-1):
+        if request.method=="GET":
+                return render(request,"postjob.html",{
+                        "data":cid,
+                })
+        
+def admin1(request):
+    users = user.objects.all()
+    companie=company.objects.all()
+    return render(request, 'admin.html', {'users': users,"companies":companie})
