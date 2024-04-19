@@ -1,6 +1,8 @@
-*SEMESTER 5 - SOFTWARE ENGINEERING PROJECT*
-Project Name: ITJobster
+# SOFTWARE ENGINEERING PROJECT  
+
+Project Name: ITJobster  
+
 Team Members:
-  Surya J
-  Ranjith SP
+  Surya J  
+  Ranjith SP  
   Viswajith T
